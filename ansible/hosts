@@ -1,2 +1,0 @@
-[all]
-47.52.205.242   ansible_ssh_user=root   ansible_connection=ssh   ansible_ssh_pass=tigera1!
