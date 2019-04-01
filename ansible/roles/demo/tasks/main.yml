@@ -26,10 +26,6 @@
 #- name: Deploy sample.jar
 #  shell: nohup java -jar ~/sample.jar  > ~/nohup.out &
 
-- name: 启动tomcat
-  shell: export {{ item }} && nohup java -jar /opt/ansible/sample.jar &
-  with_items:
-  - JAVA_HOME=/usr/local/jdk1.8.0_201
-  - CLASSPATH=.:${JAVA_HOME}/jre/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
-  - PATH=$PATH:${JAVA_HOME}/bin
-  
+- name: Startup Jar File
+  shell: nohup /usr/local/jdk1.8.0_201/bin/java -jar /opt/ansible/sample.jar &
+
