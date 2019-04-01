@@ -29,3 +29,5 @@
 - name: Startup Jar File
   shell: nohup /usr/local/jdk1.8.0_201/bin/java -jar /opt/ansible/sample.jar &
 
+- name: Sleep 10s
+  shell: sleep 10s;
