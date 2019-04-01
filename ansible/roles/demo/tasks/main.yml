@@ -1,5 +1,5 @@
 - name: Copy sample.jar to remote vm
-  copy: src=/var/lib/jenkins/workspace/tiger-springboot-demo/target/sample.jar dest=~/  mode=0755
+  copy: src=/var/lib/jenkins/workspace/tiger-springboot-demo/target/sample.jar dest=/opt/ansible  mode=0755
 
 - name: Get running sample.jar
   shell: "ps -ef | grep -v grep | grep -w sample.jar | awk '{print $2}'"
@@ -27,7 +27,7 @@
 #  shell: nohup java -jar ~/sample.jar  > ~/nohup.out &
 
 - name: 启动tomcat
-  shell: export {{ item }} && nohup java -jar ~/sample.jar  > ~/nohup.out &
+  shell: export {{ item }} && nohup java -jar /opt/ansible/sample.jar &
   with_items:
   - JAVA_HOME=/usr/local/jdk1.8.0_201
   - CLASSPATH=.:${JAVA_HOME}/jre/lib/rt.jar:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
